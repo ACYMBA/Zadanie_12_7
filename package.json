@@ -1,0 +1,23 @@
+{
+  "name": "kodilla-zad_12_7",
+  "version": "1.0.0",
+  "description": "examp kod zad127",
+  "main": "gruntfile,js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "albert",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-sass": "^2.0.0"
+  }
+}
