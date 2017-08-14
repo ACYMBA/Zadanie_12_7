@@ -9,12 +9,19 @@ function Card(id, name) {
 	function createCard() {
 		var card = $('<li class="card"></li>');
 		var cardDeleteBtn = $('<button class="btn-delete">x</button>');
+		var cardEditBtn = $('<button class="btn-edit">Edycja</button>');
 		var cardDescription = $('<p class="card-description"></p>');
 		
 		cardDeleteBtn.click(function(){
 			self.removeCard();
 		});
 		
+		cardEditBtn.click(function(event){
+		var cardName = prompt("Wpisz nową nazwę karty");
+		event.preventDefault();	
+		});
+
+		card.append(cardEditBtn);
 		card.append(cardDeleteBtn);
 		cardDescription.text(self.name);
 		card.append(cardDescription)
@@ -33,3 +40,20 @@ Card.prototype = {
     });
 }
 };
+Card.prototype = {
+	editCard: function() {
+    var self = this;
+	$.ajax({
+	    url: baseUrl + '/card',
+	    method: 'PUT',
+	    data: {
+	    name: cardName,
+	    bootcamp_kanban_column_id: self.id
+	    },
+	    success: function(response) {
+         self.editCard(card);
+	    }
+    });
+}
+};
+		
