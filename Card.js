@@ -28,32 +28,30 @@ function Card(id, name) {
 		return card;
 	}
 }
+
 Card.prototype = {
 	removeCard: function() {
-    var self = this;
-    $.ajax({
-      url: baseUrl + '/card/' + self.id,
-      method: 'DELETE',
-      success: function(){
-        self.element.remove();
-      }
-    });
-}
-};
-Card.prototype = {
-	editCard: function() {
-    var self = this;
-	$.ajax({
-	    url: baseUrl + '/card',
-	    method: 'PUT',
-	    data: {
-	    name: cardName,
-	    bootcamp_kanban_column_id: self.id
-	    },
-	    success: function(response) {
-         self.editCard(card);
-	    }
-    });
-}
-};
-		
+        var self = this;
+        $.ajax({
+          url: baseUrl + '/card/' + self.id,
+          method: 'DELETE',
+          success: function(){
+            self.element.remove();
+          }
+        });
+    },
+    editCard: function() {
+        var self = this;
+        $.ajax({
+            url: baseUrl + '/card',
+            method: 'PUT',
+            data: {
+            name: cardName,
+            bootcamp_kanban_column_id: self.id
+            },
+            success: function(response) {
+             self.editCard(card);
+            }
+        });
+    }
+}		
