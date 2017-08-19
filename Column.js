@@ -34,7 +34,15 @@ function Column(id, name) {
 			    }
 			});
 		});
-			
+		
+		columnEditColumn.click(function(event){
+		var colNameEdit= prompt("Wpisz nową nazwę kolumny");
+		event.preventDefault();	
+		columnTitle.text(colNameEdit);
+		column.edit(columnTitle)
+		});
+
+
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		column.append(columnTitle)
 			.append(columnDelete)

@@ -20,7 +20,7 @@ function Card(id, name) {
 		var cardName = prompt("Wpisz nową nazwę karty");
 		event.preventDefault();	
 		cardDescription.text(cardName);
-		card.append(cardDescription)
+		card.edit(cardDescription)
 		});
 
 		card.append(cardEditBtn);
