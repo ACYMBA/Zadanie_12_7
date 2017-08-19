@@ -19,6 +19,8 @@ function Card(id, name) {
 		cardEditBtn.click(function(event){
 		var cardName = prompt("Wpisz nową nazwę karty");
 		event.preventDefault();	
+		cardDescription.text(cardName);
+		card.append(cardDescription)
 		});
 
 		card.append(cardEditBtn);
@@ -38,9 +40,7 @@ Card.prototype = {
         self.element.remove();
       }
     });
-}
-};
-Card.prototype = {
+},
 	editCard: function() {
     var self = this;
 	$.ajax({
@@ -55,5 +55,5 @@ Card.prototype = {
 	    }
     });
 }
-};
+}
 		
