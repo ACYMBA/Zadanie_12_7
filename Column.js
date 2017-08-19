@@ -1,5 +1,6 @@
 function Column(id, name) {
 	var self = this;
+	console.log(id);
 	this.id = id;
     this.name = name || 'No name given';
 	this.element = createColumn();
@@ -8,7 +9,7 @@ function Column(id, name) {
 		// TWORZENIE NOWYCH WĘZŁÓW
 		var column = $('<div class="column"></div>');
 		var columnTitle = $('<h2 class="column-title">' + self.name + '</h2>');
-		var columnCardList = $('<ul class="card-list"></ul>');
+		var columnCardList = $('<ul class="card-list" data-id="'+self.id+'"></ul>');
 		var columnDelete = $('<button class="btn-delete">x</button>');
 		var columnAddCard = $('<button class="column-add-card">Dodaj kartę</button>');
 		var columnEditColumn = $('<button class="column-edit">Edycja Kolumny</button>');
@@ -36,10 +37,9 @@ function Column(id, name) {
 		});
 		
 		columnEditColumn.click(function(event){
-		var colNameEdit= prompt("Wpisz nową nazwę kolumny");
-		event.preventDefault();	
-		columnTitle.text(colNameEdit);
-		column.edit(columnTitle)
+			var colNameEdit= prompt("Wpisz nową nazwę kolumny");
+			event.preventDefault();	
+			columnTitle.text(colNameEdit);
 		});
 
 
